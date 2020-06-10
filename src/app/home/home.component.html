@@ -1,37 +1,16 @@
-<div class="card-list">
-  <div class="card">
+<div class="card-list" *ngIf="pictures">
+  <div class="card" *ngFor="let picture of pictures">
     <div class="card-cover">
-      <img
-        src="https://images.unsplash.com/photo-1591766671113-3ee63794688d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80"
-        alt="skateboard"
-      />
+      <img src="{{ picture.urls.small }}" alt="skateboard" />
     </div>
     <div class="description">
-      <p>Hello world</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-cover">
-      <img
-        src="https://images.unsplash.com/photo-1591766671113-3ee63794688d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80"
-        alt="skateboard"
-      />
-    </div>
-    <div class="description">
-      <p>Hello world</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-cover">
-      <img
-        src="https://images.unsplash.com/photo-1591766671113-3ee63794688d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80"
-        alt="skateboard"
-      />
-    </div>
-    <div class="description">
-      <p>Hello world</p>
+      <p>
+        {{
+          picture.description !== null && picture.description.length > 10
+            ? picture.description.slice(0, 10)
+            : picture.description
+        }}
+      </p>
     </div>
   </div>
 </div>
