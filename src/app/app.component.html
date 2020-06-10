@@ -5,8 +5,15 @@
     </div>
 
     <div class="search-bar">
-      <input type="text" placeholder="Search..." />
+      <input
+        matInput
+        type="text"
+        (keyup)="setInputData($event.target.value)"
+        placeholder="Search..."
+      />
     </div>
   </div>
 </header>
 <router-outlet></router-outlet>
+
+<app-home [search]="inputText"></app-home>
