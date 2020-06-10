@@ -1,0 +1,32 @@
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+img {
+  height: 260px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #d3d3d3;
+  margin: 1em;
+}
+
+.card-cover {
+  height: 300px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.description {
+  margin: 0 1.5em;
+}
+
+.description > p {
+  font-weight: 600;
+}
