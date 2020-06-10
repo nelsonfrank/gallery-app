@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   pictures: Object;
 
   @Input() search: string;
-
+  imageArray = [];
   gallery = [
     {
       image: './assets/img/car.jpg',
@@ -48,6 +48,7 @@ export class HomeComponent implements OnInit {
     this._http.getPicture().subscribe((data) => {
       this.pictures = data;
     });
+    this.imageArray = this.gallery;
   }
 
   ngOnChanges() {
@@ -59,6 +60,6 @@ export class HomeComponent implements OnInit {
       let comparison = `${item.description}`;
       return comparison.indexOf(textData) > -1;
     });
-    this.gallery = newData;
+    this.imageArray = newData;
   };
 }
