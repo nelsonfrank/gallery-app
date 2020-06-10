@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { HttpService } from '../http.service';
-
+import { AppComponent } from '../app.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,7 +9,9 @@ import { HttpService } from '../http.service';
 export class HomeComponent implements OnInit {
   pictures: Object;
 
-  gallery: Object = [
+  @Input() search: string;
+
+  gallery = [
     {
       image: './assets/img/car.jpg',
       description: 'car',
@@ -40,11 +42,23 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  constructor(private _http: HttpService) {}
+  constructor(private _http: HttpService, private filter: AppComponent) {}
 
   ngOnInit() {
     this._http.getPicture().subscribe((data) => {
       this.pictures = data;
     });
   }
+
+  ngOnChanges() {
+    this.searchFilterFunction(this.search);
+  }
+  searchFilterFunction = (text: string) => {
+    const newData = this.gallery.filter((item) => {
+      const textData = text;
+      let comparison = `${item.description}`;
+      return comparison.indexOf(textData) > -1;
+    });
+    this.gallery = newData;
+  };
 }
