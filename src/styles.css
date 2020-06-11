@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:ital,wght@0,300;0,400;1,300&display=swap");
+
+:root {
+  --primary: rgb(102, 102, 255);
+}
+
+body {
+  margin: 0;
+  font-family: "Josefin Slab", "serif";
+  font-size: 18px;
+}
+
+.container {
+  width: "80%";
+  margin: 0 auto;
+}
+
+header {
+  background: var(--primary);
+}
+
+a.logo {
+  font-weight: 600;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  justify-items: center;
+  height: 3rem;
+}
