@@ -56,8 +56,8 @@ export class HomeComponent implements OnInit {
   }
   searchFilterFunction = (text: string) => {
     const newData = this.gallery.filter((item) => {
-      const textData = text;
-      let comparison = `${item.description}`;
+      const textData = text.toUpperCase();
+      let comparison = `${item.description.toUpperCase()}`;
       return comparison.indexOf(textData) > -1;
     });
     this.imageArray = newData;
