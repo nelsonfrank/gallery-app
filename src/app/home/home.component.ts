@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
   @Input() search: string;
   imageArray = [];
+
   gallery = [
     {
       image: './assets/img/car.jpg',
